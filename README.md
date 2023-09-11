@@ -35,9 +35,14 @@ https://dashboard.ngrok.com/get-started/setup
 - On modifie cette actviité pour y ajouter une description
 - `PUT /activities/{id} { body: JSON.stringify({ description: 'test' })}`
 
-- url:'https://www.strava.com/api/v3/activities/{id}'
-- type: 'PUT',
-- contentType: 'application/json'
-- headers: {
-  'Authorization': 'Bearer <token>'
-  },
+## Event Data
+
+| eventData       |                              |
+| --------------- | ---------------------------- |
+| object_type     | "activity" / "athlete"       |
+| object_id       | number                       |
+| aspect_type     | "create", "update", "delete" |
+| updates         | hash                         |
+| owner_id        | number                       |
+| subscription_id | number                       |
+| event_time      | number                       |

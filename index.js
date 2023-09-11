@@ -20,9 +20,10 @@ app.get("/webhook", (req, res) => {
   // Your verify token. Should be a random string.
   const { VERIFY_TOKEN } = process.env;
   // Parses the query params
-  let mode = req.query["hub.mode"];
-  let token = req.query["hub.verify_token"];
-  let challenge = req.query["hub.challenge"];
+  const mode = req.query["hub.mode"];
+  const token = req.query["hub.verify_token"];
+  const challenge = req.query["hub.challenge"];
+
   // Checks if a token and mode is in the query string of the request
   if (mode && token) {
     // Verifies that the mode and token sent are valid
@@ -30,6 +31,15 @@ app.get("/webhook", (req, res) => {
       // Responds with the challenge token from the request
       console.log("WEBHOOK_VERIFIED");
       res.json({ "hub.challenge": challenge });
+
+      const eventData = req.body;
+      if (
+        eventData.object_type === "activity" &&
+        eventData.aspect_type === "create"
+      ) {
+        const activityId = eventData.object_id;
+        console.log("Activity ID: ", activityId);
+      }
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
       res.sendStatus(403);
