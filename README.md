@@ -50,3 +50,4 @@ https://dashboard.ngrok.com/get-started/setup
 ## TODO
 
 - [ ] get authorization_code && access_token (scope: "activity:write")
+- [ ] write the new description

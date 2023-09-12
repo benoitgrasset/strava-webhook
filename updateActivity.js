@@ -29,6 +29,22 @@ const postCallGetAccesToken = async (authorization_code) => {
   return response.access_token;
 };
 
+// get recent (last 4 weeks) stast and the year-to-date stats
+const getGlobalStats = async (client_id, access_token) => {
+  const url = `https://www.strava.com/api/v3/athletes/${client_id}/stats`;
+  const globalStats = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${access_token}`,
+    },
+  })
+    .then((res) => res.json())
+    .catch((error) => {
+      console.error(error.message);
+    });
+
+  return globalStats;
+};
+
 /**
  * - get authorization_code && access_token (scope: "activity:write")
  */
