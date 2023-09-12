@@ -1,5 +1,7 @@
 "use strict";
 
+import { addDescription } from "./updateActivity.js";
+
 // Imports dependencies and sets up http server
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -39,6 +41,10 @@ app.get("/webhook", (req, res) => {
       ) {
         const activityId = eventData.object_id;
         console.log("Activity ID: ", activityId);
+        const description = "new activity";
+        addDescription(activityId, description).then((data) => {
+          console.log(data);
+        });
       }
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match

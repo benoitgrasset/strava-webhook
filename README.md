@@ -46,3 +46,7 @@ https://dashboard.ngrok.com/get-started/setup
 | owner_id        | number                       |
 | subscription_id | number                       |
 | event_time      | number                       |
+
+## TODO
+
+- [ ] get authorization_code && access_token (scope: "activity:write")
