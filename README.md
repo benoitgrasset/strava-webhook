@@ -37,8 +37,9 @@ https://dashboard.ngrok.com/get-started/setup
 ## How to launch
 
 - `yarn start`
-- `sudo node index.js` / `node request.js`
+- `sudo node index.js`
 - `ngrok http 80`
+- `node request.js`
 
 ## Principe
 
@@ -62,8 +63,9 @@ https://dashboard.ngrok.com/get-started/setup
 
 - [ ] deploy app and launch webhook subscription
 - [ ] get authorization_code && access_token (scope: "activity:write")
-- [ ] get the new description
+- [ ] get callback_url
+- [ ] get the new description (volume total / semaine / temperature)
 
 ## Deployment
 
-https://dashboard.render.com/
+https://dashboard.render.com/web/srv-ck0scgj6fquc73f4aeag/logs
