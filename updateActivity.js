@@ -1,8 +1,9 @@
+import fetch from "cross-fetch";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const { client_id, client_secret } = process.env;
+const { client_id, client_secret, refresh_token } = process.env;
 
 // URLs
 const baseUrl = "/";
@@ -16,8 +17,22 @@ const oauthURL = `https://www.strava.com/oauth/authorize?client_id=${client_id}&
 const authorization_code = "";
 
 // get access_token
-const postCallGetAccesToken = async (authorization_code) => {
+const postCallGetAccessToken = async (authorization_code) => {
   const url = `https://www.strava.com/api/v3/oauth/token?client_id=${client_id}&client_secret=${client_secret}&code=${authorization_code}&grant_type=authorization_code`;
+  const response = await fetch(url, {
+    method: "POST",
+  })
+    .then((res) => res.json())
+    .catch((error) => {
+      console.error(error.message);
+    });
+
+  return response.access_token;
+};
+
+// get refresh_token
+const postCallGetRefreshToken = async () => {
+  const url = `https://www.strava.com/api/v3/oauth/token?client_id=${client_id}&client_secret=${client_secret}&refresh_token=${refresh_token}&grant_type=refresh_token`;
   const response = await fetch(url, {
     method: "POST",
   })

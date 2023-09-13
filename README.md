@@ -12,6 +12,16 @@ https://www.strava.com/settings/api
 
 https://medium.com/@eric.l.m.thomas/setting-up-strava-webhooks-e8b825329dc7
 
+https://github.com/amn41/doarun/blob/master/functions/strava-hook.js
+
+## Autres solutions
+
+https://mywindsock.com/
+
+https://www.activityfix.com/
+
+https://strautomator.com/home
+
 ## ngrok config
 
 https://dashboard.ngrok.com/get-started/setup
@@ -49,5 +59,6 @@ https://dashboard.ngrok.com/get-started/setup
 
 ## TODO
 
+- [ ] deploy app and launch webhook subscription
 - [ ] get authorization_code && access_token (scope: "activity:write")
-- [ ] write the new description
+- [ ] get the new description

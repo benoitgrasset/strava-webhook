@@ -1,10 +1,9 @@
 "use strict";
 
+import bodyParser from "body-parser";
+import express from "express";
 import { addDescription } from "./updateActivity.js";
 
-// Imports dependencies and sets up http server
-const express = require("express");
-const bodyParser = require("body-parser");
 // creates express http server
 const app = express().use(bodyParser.json());
 
