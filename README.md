@@ -22,29 +22,25 @@ https://www.activityfix.com/
 
 https://strautomator.com/home
 
-## ngrok config
-
-https://dashboard.ngrok.com/get-started/setup
+## localtunnel config
 
 ## Installation
 
-- install ngrock, nodejs, express, body-parser
-- ngrok config add-authtoken 2V7DN9OijtTdRwGEyRsRH4jxTma_3GR4mKUYQTdPTEU5P4uss
-- `callback_url` is obtained launching `ngrock http 80`, `Forwarding`
-- GET /event -> callback URL is https://07590f65.ngrok.io/event (`Forwarding` ngrok)
-- GET /webhook -> callback URL is https://07590f65.ngrok.io/webhook
+- install localtunnel (`npm install -g localtunnel`), nodejs, express, body-parser
+- GET /event -> callback URL is https://url.io/event
+- GET /webhook -> callback URL is https://strava-webhook.loca.lt/webhook
 
 ## How to launch
 
-- `yarn start`
-- `sudo node index.js`
-- `ngrok http 80`
 - `node request.js`
+- `yarn start` ou
+- `sudo node index.js` et
+- `lt --port 8000`
 
 ## Principe
 
 - Une fois qu'une nouvelle activite est uploadée sur strava -> on recoit un event via un webhook auquel on est inscrit
-- On modifie cette actviité pour y ajouter une description
+- On modifie cette activité pour y ajouter une description
 - `PUT /activities/{id} { body: JSON.stringify({ description: 'test' })}`
 
 ## Event Data
