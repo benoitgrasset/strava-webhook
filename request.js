@@ -27,6 +27,10 @@ postData(pushSubsriptionsUrl, {
   client_secret,
   callback_url,
   verify_token,
-}).then((data) => {
-  console.log(data);
-});
+})
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });

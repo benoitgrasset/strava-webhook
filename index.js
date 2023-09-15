@@ -19,7 +19,7 @@ app.post("/webhook", (req, res) => {
 // Adds support for GET requests to our webhook
 app.get("/webhook", (req, res) => {
   // Your verify token. Should be a random string.
-  const { VERIFY_TOKEN } = process.env;
+  const { verify_token } = process.env;
   // Parses the query params
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
@@ -28,7 +28,7 @@ app.get("/webhook", (req, res) => {
   // Checks if a token and mode is in the query string of the request
   if (mode && token) {
     // Verifies that the mode and token sent are valid
-    if (mode === "subscribe" && token === VERIFY_TOKEN) {
+    if (mode === "subscribe" && token === verify_token) {
       // Responds with the challenge token from the request
       console.log("WEBHOOK_VERIFIED");
       res.json({ "hub.challenge": challenge });
@@ -40,14 +40,18 @@ app.get("/webhook", (req, res) => {
       ) {
         const activityId = eventData.object_id;
         console.log("Activity ID: ", activityId);
-        const description = "new activity";
-        addDescription(activityId, description).then((data) => {
-          console.log(data);
-        });
+        if (activityId !== undefined) {
+          const description = "new activity";
+          addDescription(activityId, description).then((data) => {
+            console.log(data);
+          });
+        }
       }
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
       res.sendStatus(403);
     }
+  } else {
+    console.error("token not found");
   }
 });

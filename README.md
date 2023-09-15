@@ -28,14 +28,15 @@ https://strautomator.com/home
 
 - install localtunnel (`npm install -g localtunnel`), nodejs, express, body-parser
 - GET /event -> callback URL is https://url.io/event
-- GET /webhook -> callback URL is https://strava-webhook.loca.lt/webhook
+- GET /webhook -> callback URL is https://strava-webhook.loca.lt/webhook, Use the same callback_url, appended with `/webhook`
 
 ## How to launch
 
-- `node request.js`
 - `yarn start` ou
 - `sudo node index.js` et
 - `lt --port 8000`
+  Finally, make a Postman or cURL request to subscribe to a webhook:
+- `node request.js`
 
 ## Principe
 
