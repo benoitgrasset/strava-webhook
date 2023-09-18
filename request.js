@@ -2,6 +2,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const pushSubsriptionsUrl = "https://www.strava.com/api/v3/push_subscriptions";
+
+const { client_id, client_secret, callback_url, verify_token } = process.env;
+
 async function postData(url = "", credentials = {}) {
   const response = await fetch(url, {
     method: "POST",
@@ -17,10 +21,6 @@ async function postData(url = "", credentials = {}) {
   });
   return response.json();
 }
-
-const pushSubsriptionsUrl = "https://www.strava.com/api/v3/push_subscriptions";
-
-const { client_id, client_secret, callback_url, verify_token } = process.env;
 
 postData(pushSubsriptionsUrl, {
   client_id,

@@ -43,6 +43,7 @@ const postCallGetRefreshToken = async () => {
 };
 
 // get recent (last 4 weeks) stast and the year-to-date stats
+// to build description
 const getGlobalStats = async (client_id, access_token) => {
   const url = `https://www.strava.com/api/v3/athletes/${client_id}/stats`;
   const globalStats = await fetch(url, {
@@ -86,9 +87,3 @@ export const addDescription = async (
 
   return response;
 };
-
-// for example
-const activityId = "9823566546";
-const description = "new activity";
-
-addDescription(activityId, description).then((data) => console.log(data));

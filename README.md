@@ -22,11 +22,16 @@ https://www.activityfix.com/
 
 https://strautomator.com/home
 
+## ngrok config
+
+https://dashboard.ngrok.com/get-started/setup
+
 ## localtunnel config
 
 ## Installation
 
 - install localtunnel (`npm install -g localtunnel`), nodejs, express, body-parser
+- ngrok config add-authtoken 2V7DN9OijtTdRwGEyRsRH4jxTma_3GR4mKUYQTdPTEU5P4uss
 - GET /event -> callback URL is https://url.io/event
 - GET /webhook -> callback URL is https://strava-webhook.loca.lt/webhook, Use the same callback_url, appended with `/webhook`
 
@@ -35,6 +40,7 @@ https://strautomator.com/home
 - `yarn start` ou
 - `sudo node index.js` et
 - `lt --port 8000`
+- `ngrok http 80`
   Finally, make a Postman or cURL request to subscribe to a webhook:
 - `node request.js`
 
