@@ -2,10 +2,13 @@
 
 import bodyParser from "body-parser";
 import express from "express";
+import helmet from "helmet";
 import { addDescription } from "./updateActivity.js";
 
 // creates express http server
 const app = express().use(bodyParser.json());
+
+app.use(helmet());
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 80, () => console.log("webhook is listening"));

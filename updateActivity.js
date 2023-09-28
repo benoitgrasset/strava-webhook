@@ -5,14 +5,9 @@ dotenv.config();
 
 const { client_id, client_secret, refresh_token } = process.env;
 
-// URLs
-const baseUrl = "/";
-const redirect_uri = baseUrl + "redirect";
-
 // GET
 const scope =
   "read,profile:read_all,activity:read,activity:read_all,activity:write";
-const oauthURL = `https://www.strava.com/oauth/authorize?client_id=${client_id}&response_type=code&redirect_uri=${redirect_uri}&approval_prompt=auto&scope=${scope}`;
 
 // get access_token
 const postCallGetAccessToken = async (authorization_code) => {

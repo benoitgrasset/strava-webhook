@@ -26,6 +26,9 @@ https://strautomator.com/home
 
 https://dashboard.ngrok.com/get-started/setup
 
+On the free plan with ngrok, the forwarding URL changes each time you start up ngrok.
+So you can use "localtunnel" or "serveo".
+
 ## localtunnel config
 
 ## Installation
@@ -72,3 +75,7 @@ https://dashboard.ngrok.com/get-started/setup
 ## Deployment
 
 https://dashboard.render.com/web/srv-ck0scgj6fquc73f4aeag/logs
+
+## Questions
+
+- /event or /webhook
